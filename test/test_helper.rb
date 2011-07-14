@@ -16,8 +16,8 @@ class TestAccounts
     load[type]
   end
   
-  def self.load(file = File.dirname(__FILE__) + "/accounts.yml")
-    raise "/test/accounts.yml file not found, please create, see /test/example_accounts.yml for information" unless File.exist?(file)
+  def self.load(file = File.dirname(__FILE__) + "/example_accounts.yml")
+    raise "/test/example_accounts.yml file not found, please create, see /test/example_accounts.yml for information" unless File.exist?(file)
     
     accounts = {}
     YAML::load(File.open(file)).each do |type, contents|
