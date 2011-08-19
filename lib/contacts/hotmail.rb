@@ -65,9 +65,7 @@ class Contacts
         @contacts = []
 
         while in_the_loop do
-          url = URI.parse(get_contact_list_url(index))
-          http = open_http(url)
-          resp, data = http.get(get_contact_list_url(index), "Cookie" => @cookies)
+          data, resp, cookies, forward = get(get_contact_list_url(index), @cookies)
 
           if resp.code_type != Net::HTTPOK
             raise ConnectionError, self.class.const_get(:PROTOCOL_ERROR)
